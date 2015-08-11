@@ -1,8 +1,8 @@
 {
     "name": "aboutcoders/enum-serializer-bundle",
     "type": "symfony-bundle",
-    "description": "A symfony bundle to serialize/deserialize enumerations of type myclabs/php-enum",
-    "keywords": ["enum", "myclabs/php-enum", "serializer", "jms"],
+    "description": "A symfony bundle to serialize/deserialize enumerations of type myclabs/php-enum with jms/serializer",
+    "keywords": ["enum", "myclabs/php-enum", "serialize", "deserialize", "jms", "jms/serializer"],
     "homepage": "https://bitbucket.org/aboutcoders/enum-serializer-bundle",
     "license": "AboutCoders",
     "authors": [
