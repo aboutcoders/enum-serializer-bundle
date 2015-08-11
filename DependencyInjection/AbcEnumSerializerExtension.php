@@ -2,7 +2,7 @@
 
 namespace Abc\Bundle\EnumSerializerBundle\DependencyInjection;
 
-use Abc\Bundle\EnumBundle\Serializer\Handler\EnumHandler;
+use Abc\Bundle\EnumSerializerBundle\Serializer\Handler\EnumHandler;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 /**
  * @author hschulz@aboutcoders.com
  */
-class AbcEnumExtension extends Extension
+class AbcEnumSerializerExtension extends Extension
 {
     /**
      * {@inheritDoc}

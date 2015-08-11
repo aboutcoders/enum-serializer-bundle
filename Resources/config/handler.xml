@@ -6,7 +6,7 @@
 
 
     <services>
-        <service id="abc.enum.jms_serializer.handler" class="Abc\Bundle\EnumBundle\Serializer\Handler\EnumHandler">
+        <service id="abc.enum.jms_serializer.handler" class="Abc\Bundle\EnumSerializerBundle\Serializer\Handler\EnumHandler">
             <tag name="jms_serializer.subscribing_handler"/>
         </service>
     </services>

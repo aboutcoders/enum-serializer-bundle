@@ -16,7 +16,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('abc_enum')
+        $treeBuilder->root('abc_enum_serializer')
             ->children()
                 ->arrayNode('serializer')
                     ->addDefaultsIfNotSet()

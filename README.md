@@ -27,3 +27,36 @@ public function registerBundles()
     );
 }
 ```
+## Usage
+
+In order to serialize/deserialize enumerations you have to register the type in app/config.yml
+
+``` yaml
+# app/config/config.yml
+abc_enum_serializer:
+    serializer:
+        types:
+            - My\EnumType
+```
+
+Last step is to configure the type in the annotation at the places where it is used:
+
+``` php
+
+use JMS\Serializer\Annotation\Type;
+
+class MyExample
+{
+
+    /**
+     * @Type("My\EnumType")
+     */
+    private $permission;
+
+}
+```
+
+## ToDo
+
+* Add unit tests
+* Add support for other data types such as XML
