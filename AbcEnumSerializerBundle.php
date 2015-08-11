@@ -1,6 +1,6 @@
 <?php
 
-namespace Abc\Bundle\EnumBundle;
+namespace Abc\Bundle\EnumSerializerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
