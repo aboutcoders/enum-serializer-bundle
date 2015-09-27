@@ -14,7 +14,7 @@ use MyCLabs\Enum\Enum;
 use SebastianBergmann\Exporter\Exception;
 
 /**
- * @author hschulz@aboutcoders.com
+ * @author hannes.schulz@aboutcoders.com
  */
 class EnumHandler implements SubscribingHandlerInterface
 {

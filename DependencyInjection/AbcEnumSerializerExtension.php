@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
- * @author hschulz@aboutcoders.com
+ * @author hannes.schulz@aboutcoders.com
  */
 class AbcEnumSerializerExtension extends Extension
 {

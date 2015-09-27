@@ -6,7 +6,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * @author hschulz@aboutcoders.com
+ * @author hannes.schulz@aboutcoders.com
  */
 class Configuration implements ConfigurationInterface
 {
