@@ -45,8 +45,6 @@ class SerializerTest extends KernelTestCase
 
         $data = $this->serializer->serialize($subject, $format);
 
-        echo 'serialize:' . $data;
-
         $object = $this->serializer->deserialize($data, 'Abc\Bundle\EnumSerializerBundle\Tests\Fixtures\Type\TestType', $format);
 
         $this->assertEquals($subject, $object);

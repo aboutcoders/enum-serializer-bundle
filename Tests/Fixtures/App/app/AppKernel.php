@@ -1,6 +1,6 @@
 <?php
 /*
-* This file is part of the job-bundle package.
+* This file is part of the enum-serializer-bundle package.
 *
 * (c) Hannes Schulz <hannes.schulz@aboutcoders.com>
 *

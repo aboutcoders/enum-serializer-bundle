@@ -1,4 +1,12 @@
 <?php
+/*
+* This file is part of the enum-serializer-bundle package.
+*
+* (c) Hannes Schulz <hannes.schulz@aboutcoders.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 namespace Abc\Bundle\EnumSerializerBundle\Serializer\Handler;
 
@@ -76,9 +84,6 @@ class EnumHandler implements SubscribingHandlerInterface
      */
     public function deserializeEnum(VisitorInterface $visitor, $data, array $type)
     {
-        echo 'deserialize:';
-        var_dump($data);
-
         if (null === $data) {
             return null;
         }
