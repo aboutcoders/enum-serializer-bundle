@@ -1,5 +1,5 @@
 AbcEnumSerializerBundle
-==========================
+=======================
 
 A symfony bundle to serialize/deserialize enumerations of type [myclabs/php-enum](https://github.com/myclabs/php-enum) with [jms/serializer](https://github.com/schmittjoh/serializer).
 
@@ -11,12 +11,8 @@ Build Status: [![Build Status](https://travis-ci.org/aboutcoders/enum-serializer
 
 Add the AbcEnumSerializerBundle to your `composer.json` file:
 
-``` json
-{
-    "require": {
-        "aboutcoders/enum-serializer-bundle": "dev-master"
-    }
-}
+```
+php composer.phar require aboutcoders/enum-serializer-bundle
 ```
 
 Include the bundle in the AppKernel.php class:
