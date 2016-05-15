@@ -4,46 +4,51 @@ namespace Abc\Bundle\EnumSerializerBundle\Serializer\Handler;
 
 use JMS\Serializer\Context;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
-use JMS\Serializer\JsonDeserializationVisitor;
-use JMS\Serializer\XmlDeserializationVisitor;
-use JMS\Serializer\Exception\RuntimeException;
 use JMS\Serializer\VisitorInterface;
 use JMS\Serializer\GraphNavigator;
-use JMS\Serializer\XmlSerializationVisitor;
 use MyCLabs\Enum\Enum;
-use SebastianBergmann\Exporter\Exception;
 
 /**
  * @author hannes.schulz@aboutcoders.com
  */
 class EnumHandler implements SubscribingHandlerInterface
 {
-    /** @var array */
-    private static $types = array();
+    /**
+     * @var array string[]
+     */
+    private static $types = [];
 
+    /**
+     * @return array string[]
+     */
+    public static function getSupportedFormats()
+    {
+        return ['json'];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public static function getSubscribingMethods()
     {
         $methods = array();
 
-        foreach(array('json', 'xml', 'yml') as $format)
-        {
-            foreach(static::$types as $type)
-            {
+        foreach (['json', 'xml', 'yml'] as $format) {
+            foreach (static::$types as $type) {
                 $methods[] = array(
-                    'type' => $type,
+                    'type'      => $type,
                     'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                    'format' => $format,
-                    'method' => 'deserializeEnum'
+                    'format'    => $format,
+                    'method'    => 'deserializeEnum'
                 );
             }
 
-            foreach(static::$types as $type)
-            {
+            foreach (static::$types as $type) {
                 $methods[] = array(
-                    'type' => $type,
-                    'format' => $format,
+                    'type'      => $type,
+                    'format'    => $format,
                     'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
-                    'method' => 'serializeEnum',
+                    'method'    => 'serializeEnum',
                 );
             }
         }
@@ -64,15 +69,17 @@ class EnumHandler implements SubscribingHandlerInterface
     }
 
     /**
-     * @param JsonDeserializationVisitor $visitor
+     * @param VisitorInterface           $visitor
      * @param                            $data
      * @param array                      $type
      * @return null|Enum
      */
-    public function deserializeEnum(JsonDeserializationVisitor $visitor, $data, array $type)
+    public function deserializeEnum(VisitorInterface $visitor, $data, array $type)
     {
-        if(null === $data)
-        {
+        echo 'deserialize:';
+        var_dump($data);
+
+        if (null === $data) {
             return null;
         }
 
@@ -88,8 +95,7 @@ class EnumHandler implements SubscribingHandlerInterface
     public static function register($type)
     {
         $ref = new \ReflectionClass($type);
-        if(!$ref->isSubclassOf('MyCLabs\Enum\Enum'))
-        {
+        if (!$ref->isSubclassOf('MyCLabs\Enum\Enum')) {
             throw new \InvalidArgumentException('$type must refer to a class that is a subclass of MyCLabs\Enum\Enum');
         }
 

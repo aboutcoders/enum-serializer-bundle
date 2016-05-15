@@ -1,11 +1,13 @@
-Symfony EnumSerializerBundle
+AbcEnumSerializerBundle
 ==========================
 
-A symfony bundle to serialize/deserialize enumerations of type myclabs/php-enum with jms/serializer.
+A symfony bundle to serialize/deserialize enumerations of type [myclabs/php-enum](https://github.com/myclabs/php-enum) with [jms/serializer](https://github.com/schmittjoh/serializer).
+
+**Note: At this point `json` is the only supported format.**
 
 ## Installation
 
-Add the bundle:
+Add the AbcEnumSerializerBundle to your `composer.json` file:
 
 ``` json
 {
@@ -15,7 +17,7 @@ Add the bundle:
 }
 ```
 
-Enable the bundles in the kernel:
+Include the bundle in the AppKernel.php class:
 
 ``` php
 # app/AppKernel.php
@@ -57,6 +59,4 @@ class MyExample
 ```
 
 ## ToDo
-
-* Add unit tests
-* Add support for other data types such as XML
+* Add support for data types XML and YAML.

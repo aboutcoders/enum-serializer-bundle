@@ -1,0 +1,20 @@
+imports:
+    - { resource: services.yml }
+
+framework:
+    secret: Hell yeah!
+    router: { resource: "%kernel.root_dir%/config/routing.yml" }
+    form: true
+    csrf_protection: true
+    templating:
+        engines: ['twig']
+    session: ~
+    default_locale: en
+    translator: { fallback: en }
+    profiler: { only_exceptions: false }
+    validation: { enable_annotations: true }
+
+abc_enum_serializer:
+    serializer:
+        types:
+            - Abc\Bundle\EnumSerializerBundle\Tests\Fixtures\Type\TestType
