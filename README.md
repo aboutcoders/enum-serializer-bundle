@@ -3,6 +3,8 @@ AbcEnumSerializerBundle
 
 A symfony bundle to serialize/deserialize enumerations of type [myclabs/php-enum](https://github.com/myclabs/php-enum) with [jms/serializer](https://github.com/schmittjoh/serializer).
 
+Build Status: [![Build Status](https://travis-ci.org/aboutcoders/enum-serializer-bundle.svg?branch=master)](https://travis-ci.org/aboutcoders/enum-serializer-bundle)
+
 **Note: At this point `json` is the only supported format.**
 
 ## Installation
