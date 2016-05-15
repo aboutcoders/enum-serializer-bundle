@@ -61,4 +61,5 @@ class MyExample
 ```
 
 ## ToDo
-* Add support for data types XML and YAML.
+* Add support for the formats XML and YAML
+* Add support for Symfony 2.3
