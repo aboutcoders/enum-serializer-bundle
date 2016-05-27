@@ -22,11 +22,12 @@ Include the bundle in the AppKernel.php class:
 public function registerBundles()
 {
     $bundles = array(
-
+        ...
         new Abc\Bundle\EnumSerializerBundle\AbcEnumSerializerBundle(),
     );
 }
 ```
+
 ## Usage
 
 Define the enum as defined by [myclabs/php-enum](https://github.com/myclabs/php-enum):
