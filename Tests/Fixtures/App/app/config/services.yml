@@ -1,1 +1,5 @@
 services:
+    abc.enum.tagged_test_type:
+        class: Abc\Bundle\EnumSerializerBundle\Tests\Fixtures\Type\TaggedTestType
+        tags:
+            - { name: abc.enum }

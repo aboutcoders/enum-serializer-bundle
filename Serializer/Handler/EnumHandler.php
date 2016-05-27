@@ -104,6 +104,8 @@ class EnumHandler implements SubscribingHandlerInterface
             throw new \InvalidArgumentException('$type must refer to a class that is a subclass of MyCLabs\Enum\Enum');
         }
 
-        static::$types[] = $type;
+        if(!in_array($type, static::$types)) {
+            static::$types[] = $type;
+        }
     }
 }

@@ -31,14 +31,17 @@ class AbcEnumSerializerExtension extends Extension
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        if(isset($config['serializer']['types']) && is_array($config['serializer']['types']))
-        {
-            foreach($config['serializer']['types'] as $enumClass)
-            {
+        if (isset($config['serializer']['types']) && is_array($config['serializer']['types'])) {
+            foreach ($config['serializer']['types'] as $enumClass) {
+                /**
+                 * Note: The class is registered here directly instead of using $registry->addMethodCall()
+                 * because then it is not ensured that types are set before the JMSSerializerBundle processes
+                 * the listeners and thus, the type would not be registered at all.
+                 */
                 EnumHandler::register($enumClass);
             }
 
             $loader->load('handler.xml');
         }
     }
-} 
+}

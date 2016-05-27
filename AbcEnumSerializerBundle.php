@@ -10,6 +10,8 @@
 
 namespace Abc\Bundle\EnumSerializerBundle;
 
+use Abc\Bundle\EnumSerializerBundle\DependencyInjection\Compiler\RegisterTypesPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -17,4 +19,11 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class AbcEnumSerializerBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function build(ContainerBuilder $container)
+    {
+        $container->addCompilerPass(new RegisterTypesPass());
+    }
 }

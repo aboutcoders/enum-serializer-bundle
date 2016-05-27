@@ -13,13 +13,13 @@ namespace Abc\Bundle\EnumSerializerBundle\Tests\Fixtures\Type;
 use MyCLabs\Enum\Enum;
 
 /**
- * @method static TestType VALUE1()
- * @method static TestType VALUE2()
+ * @method static TaggedTestType VALUE1()
+ * @method static TaggedTestType VALUE2()
  *
  * @author Hannes Schulz <hannes.schulz@aboutcoders.com>
  */
-class TestType extends Enum
+class TaggedTestType extends Enum
 {
-    const VALUE1    = 'foo';
-    const VALUE2    = 'bar';
+    const VALUE1    = 'value1';
+    const VALUE2    = 'value2';
 }

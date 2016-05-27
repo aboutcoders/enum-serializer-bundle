@@ -29,31 +29,68 @@ public function registerBundles()
 ```
 ## Usage
 
-In order to serialize/deserialize enumerations you have to register the type in app/config.yml
+Define the enum as defined by [myclabs/php-enum](https://github.com/myclabs/php-enum):
+
+``` php
+namespace Acme;
+
+use MyCLabs\Enum\Enum;
+
+class MyEnum
+{
+    const VALUE_1;
+    const VALUE_2;
+}
+```
+
+In order to serialize/deserialize the enumeration you can register the type in app/config.yml
 
 ``` yaml
 # app/config/config.yml
 abc_enum_serializer:
     serializer:
         types:
-            - My\EnumType
+            - Acme\MyEnum
 ```
 
-Last step is to configure the type in the annotation at the places where it is used:
+or you can register the enum within the service container and tag it with with the tag `abc.enum`
+
+``` yaml
+services:
+    my_enum:
+        class: Acme\MyEnum
+        tags:
+            - { name: abc.enum }
+```
+
+**Note, this service should be declared private and should never be instantiated, since this would lead to an exception. The only purpose of this service is to provide the fully qualified name of the class that needs to be registered as enum type.**
+
+Finally you can configure the type in case you use it as a member variable
 
 ``` php
-
 use JMS\Serializer\Annotation\Type;
 
 class MyExample
 {
 
     /**
-     * @Type("My\EnumType")
+     * @Type("Acme\MyEnum")
      */
-    private $permission;
+    private $myEnum;
 
 }
+```
+
+or serialize/deserialize it directly referencing the type:
+
+``` php
+
+$serializer = $container->get('jms_serializer');
+
+$data = $serializer->serialize($subject, 'json');
+
+$enum = $this->serializer->deserialize($data, MyExample::class, 'json');
+
 ```
 
 ## ToDo

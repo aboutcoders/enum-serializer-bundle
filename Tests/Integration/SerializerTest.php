@@ -11,6 +11,7 @@
 namespace Abc\Bundle\EnumSerializerBundle\Tests\Integration;
 
 use Abc\Bundle\EnumSerializerBundle\Serializer\Handler\EnumHandler;
+use Abc\Bundle\EnumSerializerBundle\Tests\Fixtures\Type\TaggedTestType;
 use Abc\Bundle\EnumSerializerBundle\Tests\Fixtures\Type\TestType;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -39,13 +40,28 @@ class SerializerTest extends KernelTestCase
      * @param string $format
      * @dataProvider provideSupportedFormats
      */
-    public function testSerializeToJson($format)
+    public function testSerializeToJsonWithTypeDefinedInConfiguration($format)
     {
         $subject = TestType::VALUE1();
 
         $data = $this->serializer->serialize($subject, $format);
 
-        $object = $this->serializer->deserialize($data, 'Abc\Bundle\EnumSerializerBundle\Tests\Fixtures\Type\TestType', $format);
+        $object = $this->serializer->deserialize($data, TestType::class, $format);
+
+        $this->assertEquals($subject, $object);
+    }
+
+    /**
+     * @param string $format
+     * @dataProvider provideSupportedFormats
+     */
+    public function testSerializeToJsonWithTaggedService($format)
+    {
+        $subject = TaggedTestType::VALUE1();
+
+        $data = $this->serializer->serialize($subject, $format);
+
+        $object = $this->serializer->deserialize($data, TaggedTestType::class, $format);
 
         $this->assertEquals($subject, $object);
     }
