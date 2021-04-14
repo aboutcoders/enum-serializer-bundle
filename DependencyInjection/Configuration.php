@@ -23,8 +23,16 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('abc_enum_serializer')
+        $treeBuilder = new TreeBuilder('abc_enum_serializer');
+
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // for symfony/config 4.1 and older
+            $rootNode = $treeBuilder->root('abc_enum_serializer');
+        }
+        
+        $rootNode
             ->children()
                 ->arrayNode('serializer')
                     ->addDefaultsIfNotSet()
