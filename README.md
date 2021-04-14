@@ -96,4 +96,3 @@ $enum = $this->serializer->deserialize($data, MyExample::class, 'json');
 
 ## ToDo
 * Add support for the formats XML and YAML
-* Add support for Symfony 2.3
